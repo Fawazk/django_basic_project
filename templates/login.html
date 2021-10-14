@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+</head>
+   
+<body class="main-bg">
+    <div class="login-container text-c animated flipInX">
+           
+                <h3 class="text-whitesmoke">Sign In Template</h3>
+                <p class="text-whitesmoke">Sign In</p>
+            <div class="container-content">
+               
+                <form class="margin-t" id="login" action="{% url 'login' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Username" name="username">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="*****" name="password">
+                    </div>
+                    {% for x in messages %}
+                    <h6 style="color:red" >{{x}}</h6>
+                    {% endfor %}
+                    <button type="submit" class="form-button button-l margin-b">Sign In</button>
+    
+                    <a class="text-darkyellow" href="#"><small>Forgot your password?</small></a>
+                    <p class="text-whitesmoke text-center"><small>Do not have an account?</small></p>
+                    <a class="text-darkyellow" href="#"><small>Sign Up</small></a>
+                </form>
+                <p class="margin-t text-whitesmoke"><small> Team Django &copy; 2021</small> </p>
+            </div>
+        </div>
+        <style>
+            .error{
+                color:red !important;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+        <script src="{% static 'login.js' %}"></script>
+    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+</body>
+
+
+</html>
